@@ -1,8 +1,15 @@
-## Unreleased
+## v1.4.0 (2023-12-22)
 
 ### New Features
 
 - move decoding functions to esp-idf-panic-decoder
+
+### Bug Fixes
+
+- unbuffered read for linux target
+- **serial_reader**: don't set closing wait on already closed port
+- running monitor on linux target does not need port
+- **hard_reset**: make sure that DTR is pulled up before hard resetting the chip
 
 ## v1.3.4 (2023-11-21)
 
