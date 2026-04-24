@@ -51,7 +51,15 @@ dev = [
     'czespressif; python_version >= "3.9"',
     'coverage[toml]',
 ]
-ide = ['websocket-client']
+ide = [
+    # Modern path: esp-pylib's IDE WebSocket module. Requires Python >= 3.8
+    # because esp-pylib[ide] pulls in `websockets >= 12`.
+    'esp-pylib[ide]; python_version >= "3.8"',
+    # TODO(py37-drop): drop the websocket-client fallback (and the version
+    # markers above) once Python 3.7 support is dropped. See
+    # esp-pylib's README "Cleanup checklist when Python 3.7 support is dropped".
+    'websocket-client; python_version < "3.8"',
+]
 target_test = [
     'SimpleWebSocketServer',
     'pytest',
